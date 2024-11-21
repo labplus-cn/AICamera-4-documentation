@@ -7,16 +7,16 @@
 例程::
 
     from mpython import *
-    from camera import *
+    import smartcamera_new as smartcamera
     import time
 
-    camera = CameraV831(tx=Pin.P16, rx=Pin.P15)
-    camera.find_line_init()
+    smart_camera = smartcamera.SmartCamera(tx=Pin.P16, rx=Pin.P15)
+    smart_camera.color_statistics_init(_choice=1)
+    smart_camera.color_statistics.set_img_grayscale_threshold((200, 255))
+    smart_camera.color_statistics.set_line_grayscale_threshold((230, 255))
     while True:
-        camera.find_line.recognize()
-        if camera.find_line.line_data["rect"] != None:
-            print(camera.find_line.line_data["pixels"])
-            print(camera.find_line.rotation_angle)
+        smart_camera.color_statistics.recognize()
+        print(smart_camera.color_statistics.line_get_regression_data[6])
         time.sleep_ms(20)
 
 

@@ -6,23 +6,15 @@
 例程::
 
     from mpython import *
-    from camera import *
-    import time
+    import smartcamera_new as smartcamera
 
-    camera = CameraV831(tx=Pin.P16, rx=Pin.P15)
-    ID = ['class1', 'class2', 'class3']
-    camera.self_learning_classifier_init(3, 15)
-    camera.slc.add_class_img()
-    camera.slc.add_sample_img()
-    camera.slc.train()
-    camera.slc.save_classifier('/root/self_learning_classifier/classes.bin')
-    while True:
-        camera.slc.predict()
-        index = camera.slc.id
-        score = camera.slc.max_score
-        if index != None and score != None:
-            print(ID[index])
-        time.sleep_ms(20)
+    smart_camera = smartcamera.SmartCamera(tx=Pin.P16, rx=Pin.P15)
+    ID = ['class1', 'class2']
+    smart_camera.self_learning_classifier_init(3, 15, 11, 1)
+    smart_camera.slc.add_class_img()
+    smart_camera.slc.add_sample_img()
+    smart_camera.slc.train()
+    smart_camera.slc.save_classifier('/flash/classify.classifier')
 
 
 
@@ -40,20 +32,20 @@ mPython图形化示例
 例程::
 
     from mpython import *
-    from camera import *
+    import smartcamera_new as smartcamera
     import time
 
     index = None
     score = None
 
-    camera = CameraV831(tx=Pin.P16, rx=Pin.P15)
+    smart_camera = smartcamera.SmartCamera(tx=Pin.P16, rx=Pin.P15)
     ID = ['class1', 'class2']
-    camera.self_learning_classifier_init(3, 15)
-    camera.slc.load_classifier('/root/self_learning_classifier/classes.bin')
+    smart_camera.self_learning_classifier_init(2, 10, 11, 1)
+    smart_camera.slc.load_classifier('/flash/classify.classifier')
     while True:
-        camera.slc.predict()
-        index = camera.slc.id
-        score = camera.slc.max_score
+        smart_camera.slc.predict()
+        index = smart_camera.slc.id
+        score = smart_camera.slc.max_score
         if index != None:
             print(ID[index])
 

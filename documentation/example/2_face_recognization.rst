@@ -6,17 +6,17 @@
 例程::
 
     from mpython import *
-    from camera import *
+    import smartcamera_new as smartcamera
     import time
 
-    camera = CameraV831(tx=Pin.P16, rx=Pin.P15)
-    camera.face_recognize_init(2, 80)
-    camera.fcr.add_face()
+    smart_camera = smartcamera.SmartCamera(tx=Pin.P16, rx=Pin.P15)
+    smart_camera.face_recognize_init(3, 80, 1)
+    smart_camera.fcr.add_face()
     while True:
-        camera.fcr.recognize()
-        if camera.fcr.id != None:
-            print(camera.fcr.id)
-            print(camera.fcr.max_score)
+        smart_camera.fcr.recognize()
+        if smart_camera.fcr.id != None:
+            print(smart_camera.fcr.id)
+            print(smart_camera.fcr.max_score)
         time.sleep_ms(20)
 
 

@@ -6,19 +6,18 @@
 例程::
 
     from mpython import *
-    from camera import *
+    import smartcamera_new as smartcamera
     import time
 
-    camera = CameraV831(tx=Pin.P16, rx=Pin.P15)
-    camera.model_yolo_init(["label1","label2","label3"],'/root/model/opt_int8.param','/root/model/opt_int8.bin',224,224,[4.069214876033057, 4.0495867768595035, 4.842875874125874, 4.626966783216783, 4.279592803030304, 4.3652935606060606, 5.198702830188679, 4.841686320754717, 4.55390625, 4.179166666666666])
+    smart_camera = smartcamera.SmartCamera(tx=Pin.P16, rx=Pin.P15)
+    smart_camera.kmodel_yolo_init(1,'/sd/xxx.kmodel',128,128,[0, 0, 0])
     while True:
-        camera.yolo_model.recognize()
-        if camera.yolo_model.id != None:
-            if camera.yolo_model.max_score >= 0.5:
-                print(camera.yolo_model.id)
-                print(camera.yolo_model.max_score)
-                print('')
+        smart_camera.kpu_yolo_model.recognize()
+        if smart_camera.kpu_yolo_model.id != None:
+            if smart_camera.kpu_yolo_model.max_score >= 0.5:
+                print(smart_camera.kpu_yolo_model.id)
         time.sleep_ms(10)
+
 
 
 mPython图形化示例

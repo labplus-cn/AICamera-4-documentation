@@ -6,14 +6,17 @@
 例程::
 
     from mpython import *
-    from camera import *
+    import smartcamera_new as smartcamera
     import time
 
-    camera = CameraV831(tx=Pin.P16, rx=Pin.P15)
-    camera.model_restnet18_init(["label1","label2","label3"],'/root/model/resnet18_1000_awnn.param','/root/model/resnet18_1000_awnn.bin',224,224)
+    smart_camera = smartcamera.SmartCamera(tx=Pin.P16, rx=Pin.P15)
+    smart_camera.kmodel_init(1,'/sd/xxx.kmodel',128,128)
     while True:
-        camera.restnet18_model.recognize()
-        print(camera.restnet18_model.id)
+        smart_camera.kpu_model.recognize()
+        if smart_camera.kpu_model.id != None:
+            if smart_camera.kpu_model.max_score >= 0.5:
+                print(smart_camera.kpu_model.id)
+                print(smart_camera.kpu_model.max_score)
         time.sleep_ms(10)
 
 

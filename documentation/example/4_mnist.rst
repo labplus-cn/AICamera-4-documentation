@@ -6,18 +6,16 @@
 例程::
 
     from mpython import *
-    from camera import *
+    import smartcamera_new as smartcamera
     import time
 
-    camera = CameraV831(tx=Pin.P16, rx=Pin.P15)
-    camera.mnist_init()
+    smart_camera = smartcamera.SmartCamera(tx=Pin.P16, rx=Pin.P15)
+    smart_camera.mnist_init(1)
     while True:
-        camera.mnist.recognize()
-        if camera.mnist.id != None:
-            print(camera.mnist.id)
-            print(camera.mnist.max_score)
+        smart_camera.mnist.recognize()
+        if smart_camera.mnist.id != None:
+            print(smart_camera.mnist.id)
         time.sleep_ms(20)
-
 
 
 

@@ -4,18 +4,19 @@
 例程::
 
     from mpython import *
-    from camera import *
+    import smartcamera_new as smartcamera
     import time
 
-    camera = CameraV831(tx=Pin.P16, rx=Pin.P15)
-    camera.track_init()
-    camera.track_set_up([[0, 80, 15, 127, 15, 127], [0, 80, -70, -10, 0, 30]],100)
+    smart_camera = smartcamera.SmartCamera(tx=Pin.P16, rx=Pin.P15)
+    smart_camera.sensor_config(1,2,1,160,120,0,0,(-1),(-1),1,0,1,0,24000000)
+    smart_camera.track_init(_choice=1)
+    smart_camera.track_set_up([[0, 100, -128, 127, -128, -46], [0, 80, 15, 127, 15, 127], [0, 80, -70, -10, 0, 30], [40, 100, -25, 42, 7, 127]],100)
     while True:
-        camera.track.recognize()
-        if camera.track.x != None:
-            print(camera.track.x)
-            print(camera.track.cx)
-            print(camera.track.pixels)
+        smart_camera.track.recognize()
+        if smart_camera.track.x != None:
+            print(smart_camera.track.x)
+            print(smart_camera.track.cx)
+            print(smart_camera.track.code)
         print('===')
         time.sleep_ms(20)
 

@@ -1,12 +1,12 @@
-# AI摄像头在线文档仓库
-https://aicamera-v831-documentation.readthedocs.io/zh/latest/
+# AI摄像头4.0在线文档仓库
+https://aicamera-4-documentation.readthedocs.io/zh-cn/latest/
 
 ## AI摄像头在线文档
 
-git remote add origin https://github.com/labplus-cn/AICamera-v831-documentation.git
+git remote add origin https://github.com/labplus-cn/AICamera-4-documentation.git
 ## 编译步骤
 
-git clone https://github.com/labplus-cn/AICamera-v831-documentation.git
+git clone https://github.com/labplus-cn/AICamera-4-documentation.git
 
 python3环境安装依赖库
 
@@ -37,4 +37,4 @@ tutorials 教程
 _build 编译文件目录
 
 ## readthedocs在线文档管理
-https://readthedocs.org/projects/aicamera-v831-documentation/
+https://readthedocs.org/

@@ -7,16 +7,16 @@
 例程::
 
     from mpython import *
-    from camera import *
+    import smartcamera_new as smartcamera
     import time
 
-    camera = CameraV831(tx=Pin.P16, rx=Pin.P15)
-    camera.guidepost_init()
+    smart_camera = smartcamera.SmartCamera(tx=Pin.P16, rx=Pin.P15)
+    smart_camera.guidepost_init(1)
     while True:
-        camera.guidepost.recognize()
-        if camera.guidepost.id != None and camera.guidepost.max_score >= 0.5:
-            print(camera.guidepost.id)
-            print(camera.guidepost.max_score)
+        smart_camera.guidepost.recognize()
+        if smart_camera.guidepost.id != None and smart_camera.guidepost.max_score >= 0.8:
+            print(smart_camera.guidepost.id)
+            print(smart_camera.guidepost.max_score)
         time.sleep_ms(20)
 
 

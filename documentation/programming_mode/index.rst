@@ -12,13 +12,3 @@
     :align: center
     :width: 1080
 
-
-adb工具连接
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-通过usb口连接电脑，使用adb工具可连接至AI摄像头系统终端
-adb shell
-
-.. figure:: /_static/image/adb.png
-    :align: center
-    :width: 1080

@@ -1,12 +1,12 @@
 初始化AI摄像头
 ==============
 
-.. _CameraV831:
+.. _SmartCamera:
 
-.. class:: CameraV831(tx=Pin.P16, rx=Pin.P15)
+.. class:: SmartCamera(tx=Pin.P16, rx=Pin.P15)
    :synopsis: AI摄像头类
 
-.. method::  CameraV831(tx=Pin.P16, rx=Pin.P15)
+.. method::  SmartCamera(tx=Pin.P16, rx=Pin.P15)
 
 ``tx`` 
 串口发送引脚
@@ -17,8 +17,8 @@
 例如::
     
     from mpython import *
-    from camera import *
-    camera = CameraV831(tx=Pin.P16, rx=Pin.P15)
+    import smartcamera_new as smartcamera
+    smartcamera.SmartCamera(tx=Pin.P16, rx=Pin.P15)
 
 
 mPython图形化示例

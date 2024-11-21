@@ -6,19 +6,17 @@ AprilTag识别
 例程::
 
     from mpython import *
-    from camera import *
+    import smartcamera_new as smartcamera
     import time
 
-    camera = CameraV831(tx=Pin.P16, rx=Pin.P15)
-    camera.apriltag_init()
-    camera.apriltag.set_tag_families(16)
+    smart_camera = smartcamera.SmartCamera(tx=Pin.P16, rx=Pin.P15)
+    smart_camera.apriltag_init(_choice=1)
+    smart_camera.apriltag.set_tag_families(16)
     while True:
-        camera.apriltag.recognize()
-        if camera.apriltag.tag_family != None:
-            print(camera.apriltag.tag_id)
-            print(camera.apriltag.x_tran)
-            print(camera.apriltag.x_rol)
-            print(camera.apriltag.length)
+        smart_camera.apriltag.recognize()
+        if smart_camera.apriltag.tag_family != None:
+            print(smart_camera.apriltag.tag_family)
+            print(smart_camera.apriltag.tag_id)
         time.sleep_ms(20)
 
 
