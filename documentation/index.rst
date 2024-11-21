@@ -8,7 +8,7 @@ AI摄像头帮助文档
 
 .. toctree::
     :maxdepth: 3
-    :caption: 一、AI摄像头硬件介绍 
+    :caption: 一、AI摄像头4.0硬件介绍 
     :titlesonly:
     :numbered: 
 
