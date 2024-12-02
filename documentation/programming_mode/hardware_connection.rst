@@ -21,7 +21,7 @@
 ---------------------
 打开mPython软件，连接上乐动掌控，选择连接的引脚，刷入程序
 
-控制台会输出“==AI摄像头通信成功==”，摄像头会进入识别模式
+乐动掌控与摄像头成功通信，控制台会输出“==AI摄像头通信成功==”
 
 .. figure:: /_static/image/hardware_connection/3.png
     :align: center
