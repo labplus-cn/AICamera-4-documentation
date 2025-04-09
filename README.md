@@ -1,4 +1,4 @@
-# AI摄像头4.0在线文档仓库
+# AI摄像头3.1在线文档仓库
 https://aicamera-4-documentation.readthedocs.io/zh-cn/latest/
 
 ## AI摄像头在线文档
